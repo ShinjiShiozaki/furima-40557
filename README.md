@@ -22,7 +22,7 @@
 | category_id          | integer    | null: false                    |
 | jyoutai_id           | integer    | null: false                    |
 | haisouryou_futan_id  | integer    | null: false                    |
-| hassoumoto_chiiki_id | integer    | null: false                    |
+| todoufuken_id        | integer    | null: false                    |
 | hassou_nissuu_id     | integer    | null: false                    |
 | kakaku               | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |

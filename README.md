@@ -45,7 +45,7 @@
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
 | yuubin_bangou     | string     | null: false                    |
-| todoufuken        | string     | null: false                    |
+| todoufuken_id     | integer    | null: false                    |
 | shikuchouson      | string     | null: false                    |
 | banchi            | string     | null: false                    |
 | tatemono          | string     | null: true                     |

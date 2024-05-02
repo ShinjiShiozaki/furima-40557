@@ -1,46 +1,46 @@
 <mxfile host="65bd71144e">
     <diagram id="fRKxvucNq5xgaGwhDnIN" name="ページ1">
-        <mxGraphModel dx="681" dy="538" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1120" dy="566" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="テーブル(ユーザ情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="10" y="100" width="320" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="nick_name (string  null: false)&#10;email (string  null: false, unique: true)&#10;encrypted_password (string  null: false) &#10;sei_kanji (string  null: false) &#10;mei_kanji (string  null: false) &#10;sei_kana (string  null: false) &#10;mei_kana (string  null: false) &#10;tanjyou_nen (int null: false) &#10;tanjyou_tsuki (int null: false) &#10;tanjyou_nichi (int null: false) &#10;&#10;Association&#10;has_many :items&#10;has_many :kounyuus&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="2" vertex="1">
+                <mxCell id="3" value="nick_name (string  null: false)&#10;email (string  null: false, unique: true)&#10;encrypted_password (string  null: false) &#10;sei_kanji (string  null: false) &#10;mei_kanji (string  null: false) &#10;sei_kana (string  null: false) &#10;mei_kana (string  null: false) &#10;tanjyou_nen (int null: false) &#10;tanjyou_tsuki (int null: false) &#10;tanjyoubi (date null: false) &#10;&#10;Association&#10;has_many :items&#10;has_many :kounyuus&#10;&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="2" vertex="1">
                     <mxGeometry y="26" width="320" height="214" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="furima-40557のER図" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=21;flipH=0;flipV=1;align=center;verticalAlign=middle;" parent="1" vertex="1">
                     <mxGeometry x="289" y="30" width="250" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="items テーブル(商品情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="11" value="items テーブル(商品情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="414" y="100" width="320" height="240" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" value="gazou (string null: false)&#10;mei (string null: false)&#10;setsumei (text null: false)&#10;category (string null: false)&#10;jyoutai (string null: false)&#10;haisouryou_futan (string null: false)&#10;hassoumoto_chiiki (string null: false)&#10;hassou_nissuu (string null: false)&#10;kakaku (int null: false)&#10;user_id (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :users&#10;has_one :kounyuus&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="11">
+                <mxCell id="12" value="gazou (string null: false)&#10;mei (string null: false)&#10;setsumei (text null: false)&#10;category_id (integer null: false)&#10;jyoutai_id (integer null: false)&#10;haisouryou_futan_id (integer null: false)&#10;hassoumoto_chiiki_id (integer null: false)&#10;hassou_nissuu_id (integer null: false)&#10;kakaku (int null: false)&#10;user (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :user&#10;has_one :kounyuu&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="11" vertex="1">
                     <mxGeometry y="26" width="320" height="214" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="edgeStyle=none;html=1;endArrow=ERoneToMany;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;" edge="1" parent="1" source="3" target="12">
+                <mxCell id="13" value="" style="edgeStyle=none;html=1;endArrow=ERoneToMany;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;" parent="1" source="3" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="kounyuus テーブル(購入記録)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="14" value="kounyuus テーブル(購入記録)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="10" y="410" width="320" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="soldout (boolean null: false)&#10;item_id (references null: false, foreign_key: true)&#10;user_id (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :users&#10;belongs_to :items&#10;has_one :hassousakis" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="14">
+                <mxCell id="15" value="item (references null: false, foreign_key: true)&#10;user (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :user&#10;belongs_to :item&#10;has_one :hassousaki" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="14" vertex="1">
                     <mxGeometry y="26" width="320" height="134" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="hassousakis テーブル(発送先情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
+                <mxCell id="20" value="hassousakis テーブル(発送先情報)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="414" y="410" width="320" height="190" as="geometry"/>
                 </mxCell>
-                <mxCell id="21" value="yuubin_bangou (int null: false)&#10;todoufuken (string null: false)&#10;shikuchouson (string null: false)&#10;banchi (string null: false)&#10;tatemono (string null: true)&#10;denwabango (int null: true)&#10;kounyuu_id (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :kounyuus" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="20">
+                <mxCell id="21" value="yuubin_bangou (string null: false)&#10;todoufuken (string null: false)&#10;shikuchouson (string null: false)&#10;banchi (string null: false)&#10;tatemono (string null: true)&#10;denwabango (string null: true)&#10;kounyuu_id (references null: false, foreign_key: true)&#10;&#10;Association&#10;belongs_to :kounyuu" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="20" vertex="1">
                     <mxGeometry y="26" width="320" height="164" as="geometry"/>
                 </mxCell>
-                <mxCell id="22" value="" style="edgeStyle=none;html=1;endArrow=ERoneToMany;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;exitX=0.444;exitY=1.011;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.442;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3" target="14">
+                <mxCell id="22" value="" style="edgeStyle=none;html=1;endArrow=ERoneToMany;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;exitX=0.444;exitY=1.011;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.442;entryY=-0.014;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3" target="14" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="340" y="243" as="sourcePoint"/>
                         <mxPoint x="424" y="243" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="23" value="" style="edgeStyle=none;html=1;endArrow=ERone;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;entryX=0.574;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="14" target="12">
+                <mxCell id="23" value="" style="edgeStyle=none;html=1;endArrow=ERone;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;entryX=0.574;entryY=0.997;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="14" target="12" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="220" y="400" as="sourcePoint"/>
                         <mxPoint x="424" y="243" as="targetPoint"/>
@@ -50,7 +50,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="24" value="" style="edgeStyle=none;html=1;endArrow=ERone;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="15">
+                <mxCell id="24" value="" style="edgeStyle=none;html=1;endArrow=ERone;endFill=0;endSize=10;jumpSize=14;startArrow=ERone;startFill=0;targetPerimeterSpacing=0;sourcePerimeterSpacing=0;startSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="15" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="260" y="420" as="sourcePoint"/>
                         <mxPoint x="410" y="503" as="targetPoint"/>

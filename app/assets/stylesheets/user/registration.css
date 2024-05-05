@@ -7,6 +7,17 @@
   justify-content: center;
 }
 
+/* 240505)追加 */
+.inner {
+  padding-top: 35px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-weight: 900;
+  font-size: 22px;
+  align-items: center;
+}
+
 /* form-wrapは商品購入画面でも使用しています */
 .form-wrap {
   width: 50%;

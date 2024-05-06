@@ -8,11 +8,9 @@
     </h1>
   </div>
 
-  <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
   <%= render 'shared/error_messages', model: f.object %>
-  <%# インスタンスを渡すということは下記のような記述になるのでしょうか？ %>
+  <%# 下記記述でも同じ意味が、汎用性の面から上記記述を採用 %>
   <%# render 'shared/error_messages', model: @user %>
-  <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
   <div class="form-group">
     <div class='form-text-wrap'>

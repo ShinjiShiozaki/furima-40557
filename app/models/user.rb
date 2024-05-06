@@ -7,19 +7,19 @@ class User < ApplicationRecord
   #ニックネームが必須であること
   validates :nick_name, presence: true
 
-  #メールアドレスが必須であること
-  #メールアドレスが一意性であること
-  #メールアドレスは、@を含む必要があること
+  #メールアドレスが必須であること→Deviseデフォルト
+  #メールアドレスが一意性であること→Deviseデフォルト
+  #メールアドレスは、@を含む必要があること→Deviseデフォルト
   #validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
-  #パスワードが必須であること
-  #パスワードは、6文字以上での入力が必須であること
-  #パスワードは、半角英数字混合での入力が必須であること
-  #パスワードとパスワード（確認）は、値の一致が必須であること
+  #パスワードが必須であること→Deviseデフォルト
+  #パスワードは、6文字以上での入力が必須であること→Deviseデフォルト
+  #パスワードは、半角英数字混合での入力が必須であること→これだけ指定する
+  #パスワードとパスワード（確認）は、値の一致が必須であること→Deviseデフォルト
   VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   #validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
-  validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
-  validates :password, confirmation: true
+  validates :password, format: { with: VALID_PASSWORD_REGEX }
+  #validates :password, confirmation: true
 
   #新規登録/本人情報確認
   #お名前(全角)は、名字と名前がそれぞれ必須であること

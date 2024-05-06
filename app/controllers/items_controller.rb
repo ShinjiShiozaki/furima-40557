@@ -1,3 +1,3 @@
 class ItemsController < ApplicationController
-  #binding.pry
+  # binding.pry
 end

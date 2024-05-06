@@ -17,7 +17,8 @@ class User < ApplicationRecord
   #パスワードは、半角英数字混合での入力が必須であること
   #パスワードとパスワード（確認）は、値の一致が必須であること
   VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-  validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+  #validates :password, presence: true, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+  validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
   validates :password, confirmation: true
 
   #新規登録/本人情報確認

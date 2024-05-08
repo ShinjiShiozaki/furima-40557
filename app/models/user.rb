@@ -33,4 +33,8 @@ class User < ApplicationRecord
   #生年月日が必須であること
   validates :tanjyoubi, presence: true
 
+  #アソシエーション
+  has_many :items
+  #has_many :kounyuus
+
 end

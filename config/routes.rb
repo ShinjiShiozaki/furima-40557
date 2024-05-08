@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   
   root 'items#index'
 
-  resources :items, only: [:new]
+  #resources :items, only: [:new]
+  # 240508)add :create
+  resources :items, only: [:new, :create]
  
   #resources :items
   #resources :prototypes, only: [:index, :new, :create, :show]

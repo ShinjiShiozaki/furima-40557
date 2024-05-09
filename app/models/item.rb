@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  #240509)add
+  has_one_attached :image
+
   #240508)add
   #アソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions

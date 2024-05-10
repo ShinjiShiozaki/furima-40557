@@ -5,7 +5,6 @@ RSpec.describe User, type: :model do
   end
 
   describe 'ユーザー新規登録' do
-    
     context 'ユーザ登録ができる時' do
       it '必要なカラムが存在すれば登録できる' do
         expect(@user).to be_valid

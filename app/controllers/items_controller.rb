@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  #240508)add
+  # 240508)add
   def new
     @item = Item.new
   end
@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id, :hassou_nissuu_id, :kakaku).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id,
+                                 :hassou_nissuu_id, :kakaku).merge(user_id: current_user.id)
   end
-
 end

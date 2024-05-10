@@ -25,8 +25,8 @@ require 'rspec/rails'
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
 
-#240510)add
-I18n.locale = "en"
+# 240510)add
+I18n.locale = 'en'
 
 begin
   ActiveRecord::Migration.maintain_test_schema!

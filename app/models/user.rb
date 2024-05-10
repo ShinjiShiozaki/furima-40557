@@ -7,15 +7,7 @@ class User < ApplicationRecord
   #ニックネームが必須であること
   validates :nick_name, presence: true
 
-  #メールアドレスが必須であること→Deviseデフォルト
-  #メールアドレスが一意性であること→Deviseデフォルト
-  #メールアドレスは、@を含む必要があること→Deviseデフォルト
-  #validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-
-  #パスワードが必須であること→Deviseデフォルト
-  #パスワードは、6文字以上での入力が必須であること→Deviseデフォルト
   #パスワードは、半角英数字混合での入力が必須であること
-  #パスワードとパスワード（確認）は、値の一致が必須であること→Deviseデフォルト
   VALID_PASSWORD_REGEX =/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates :password, format: { with: VALID_PASSWORD_REGEX }
  
@@ -33,7 +25,6 @@ class User < ApplicationRecord
   #生年月日が必須であること
   validates :tanjyoubi, presence: true
 
-  #240508)add
   #アソシエーション
   has_many :items
   #has_many :kounyuus

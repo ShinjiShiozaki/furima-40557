@@ -12,6 +12,10 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品登録ができない時' do
+      it 'userが紐付いていなければ出品できない' do
+        @item.user = nil
+        expect(@item).not_to be_valid
+      end
       it '商品画像を1枚つけることが必須であること' do
         @item.image = nil
         @item.valid?

@@ -1,8 +1,8 @@
-// 金額を入力した数値をpriceInputという変数に格納する
-const ItemPrice = document.getElementById("item-price");
-const AddTaxPrice = document.getElementById("add-tax-price");
-const Profit = document.getElementById("profit");
 ItemPrice.addEventListener("input", () => {
+// 金額を入力した数値をpriceInputという変数に格納する
+  const ItemPrice = document.getElementById("item-price");
+  const AddTaxPrice = document.getElementById("add-tax-price");
+  const Profit = document.getElementById("profit");
   const ItemPriceValue = ItemPrice.value;
 
   // 販売手数料の計算

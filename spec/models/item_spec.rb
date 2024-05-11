@@ -14,7 +14,8 @@ RSpec.describe Item, type: :model do
     context '商品登録ができない時' do
       it 'userが紐付いていなければ出品できない' do
         @item.user = nil
-        expect(@item).not_to be_valid
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'User must exist'
       end
       it '商品画像を1枚つけることが必須であること' do
         @item.image = nil
@@ -61,10 +62,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Kakaku can't be blank"
       end
-      it '価格は、￥300~￥9,999,999の間のみ保存可能であること' do
+      it '価格が300円未満では出品できない' do
         @item.kakaku = 299
         @item.valid?
         expect(@item.errors.full_messages).to include 'Kakaku must be greater than or equal to 300'
+      end
+      it '価格が9_999_999円を超えると出品できない' do
         @item.kakaku = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include 'Kakaku must be less than or equal to 9999999'

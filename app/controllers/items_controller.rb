@@ -5,6 +5,10 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def index
+    @items = Item.all
+  end
+
   def edit
   end
 

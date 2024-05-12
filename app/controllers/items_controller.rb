@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
     @items = Item.all.order(created_at: :desc)
   end
 
+  def show
+    @item = Iweet.find(params[:id])
+  end
+
   def edit
   end
 

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update]
   before_action :authenticate_user!, only: [:new, :edit]
 
   def new
@@ -19,18 +20,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
     if user_signed_in? == false || current_user.id != @item.user_id
       redirect_to root_path
     end
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -50,4 +48,13 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id,
                                  :hassou_nissuu_id, :kakaku).merge(user_id: current_user.id)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
+
+#22,26,33行目で定義している@itemの記述が重複しているようです。
+#こちらはprivate以下にメソッド化して、beforeアクションで呼び出す形にすることでリファクタリングしましょう。
+#そうすることで複数回使用する変数をメソッド化することで可読性が上がり、改修作業が発生した際も手を加えやすくなります。

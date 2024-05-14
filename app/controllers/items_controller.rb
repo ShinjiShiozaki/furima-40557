@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
 
   def new
@@ -23,9 +23,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if user_signed_in? == false || current_user.id != @item.user_id
-      redirect_to root_path
-    end
+    return unless user_signed_in? == false || current_user.id != @item.user_id
+
+    redirect_to root_path
   end
 
   def update
@@ -37,9 +37,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    #item = Item.find(params[:id])
-    #item.destroy
-    #redirect_to root_path
+    @item.destroy if user_signed_in? && current_user.id == @item.user_id
+    redirect_to root_path
   end
 
   private
@@ -52,9 +51,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
-
-#22,26,33行目で定義している@itemの記述が重複しているようです。
-#こちらはprivate以下にメソッド化して、beforeアクションで呼び出す形にすることでリファクタリングしましょう。
-#そうすることで複数回使用する変数をメソッド化することで可読性が上がり、改修作業が発生した際も手を加えやすくなります。

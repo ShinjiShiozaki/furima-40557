@@ -1,19 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :set_item, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit]
 
   def new
     @item = Item.new
-  end
-
-  def index
-    @items = Item.all.order(created_at: :desc)
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
-
-  def edit
   end
 
   def create
@@ -25,10 +15,46 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    @items = Item.all.order(created_at: :desc)
+  end
+
+  def show
+  end
+
+  def edit
+    if user_signed_in? == false || current_user.id != @item.user_id
+      redirect_to root_path
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    #item = Item.find(params[:id])
+    #item.destroy
+    #redirect_to root_path
+  end
+
   private
 
   def item_params
     params.require(:item).permit(:image, :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id,
                                  :hassou_nissuu_id, :kakaku).merge(user_id: current_user.id)
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
+
+#22,26,33行目で定義している@itemの記述が重複しているようです。
+#こちらはprivate以下にメソッド化して、beforeアクションで呼び出す形にすることでリファクタリングしましょう。
+#そうすることで複数回使用する変数をメソッド化することで可読性が上がり、改修作業が発生した際も手を加えやすくなります。

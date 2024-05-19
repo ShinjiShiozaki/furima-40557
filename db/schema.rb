@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_17_074859) do
     t.string "shikuchouson", null: false
     t.string "banchi", null: false
     t.string "tatemono"
-    t.string "denwabango"
+    t.string "denwabango", null: false
     t.bigint "kounyuu_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

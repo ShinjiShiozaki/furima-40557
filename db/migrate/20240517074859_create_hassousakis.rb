@@ -6,7 +6,7 @@ class CreateHassousakis < ActiveRecord::Migration[7.0]
       t.string :shikuchouson,   null: false
       t.string :banchi,         null: false
       t.string :tatemono,       null: true
-      t.string :denwabango,     null: true
+      t.string :denwabango,     null: false
       t.references :kounyuu,    null: false, foreign_key: true
       t.timestamps
     end

@@ -49,7 +49,7 @@
 | shikuchouson      | string     | null: false                    |
 | banchi            | string     | null: false                    |
 | tatemono          | string     | null: true                     |
-| denwabango        | string     | null: true                     |
+| denwabango        | string     | null: false                    |
 | kounyuu           | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :kounyuu

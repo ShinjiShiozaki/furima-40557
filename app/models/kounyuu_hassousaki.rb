@@ -5,12 +5,16 @@ class KounyuuHassousaki
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
+    validates :yuubin_bangou, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :todoufuken_id, numericality: {other_than: 1, message: "can't be blank"}
+    validates :shikuchouson
+    validates :banchi
+    validates :denwabango
     validates :user_id
     validates :item_id
     #validates :kounyuu_id
-    validates :yuubin_bangou, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
   end
-  validates :todoufuken_id, numericality: {other_than: 0, message: "can't be blank"}
+
   
   # 各テーブルにデータを保存する処理を書く
   def save

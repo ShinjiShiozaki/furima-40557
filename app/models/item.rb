@@ -11,8 +11,7 @@ class Item < ApplicationRecord
   belongs_to :hassou_nissuu_list
 
   # 空の投稿を保存できないようにする
-  validates :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id, :hassou_nissuu_id, :kakaku, :image,
-            presence: true
+  validates :mei, :setsumei, :category_id, :jyoutai_id, :haisouryou_futan_id, :todoufuken_id, :hassou_nissuu_id, :kakaku, :image, presence: true
 
   # ジャンルの選択が「---」の時は保存できないようにする
   validates :category_id, numericality: { other_than: 1 }

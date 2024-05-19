@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'items#index'
   resources :items do
-    resources :orders, only: :index 
+    resources :orders, only: [:index, :create] 
   end
   
   #商品の購入画面へのルーティング

@@ -12,12 +12,13 @@ class KounyuuHassousaki
     validates :todoufuken_id, numericality: {other_than: 1, message: "can't be blank"}
     validates :shikuchouson
     validates :banchi
-    validates :denwabango
+    #validates :denwabango
+    validates :denwabango, format: {with: /\A[0-9]{10,11}\z/, message: "is invalid. Sólo se pueden guardar números de medio ancho entre 10 y 11 dígitos"}
     validates :user_id
     validates :item_id
     #validates :kounyuu_id
   end
-  
+
   # 各テーブルにデータを保存する処理を書く
   def save
     # 購入記録情報を保存し、変数kounyuuに代入する

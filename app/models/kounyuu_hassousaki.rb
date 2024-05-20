@@ -2,6 +2,9 @@ class KounyuuHassousaki
 
   include ActiveModel::Model
   attr_accessor :yuubin_bangou, :todoufuken_id, :todoufuken_id, :shikuchouson, :banchi, :tatemono, :denwabango, :kounyuu_id, :item_id, :user_id
+  #belongs_to :user
+  #belongs_to :item
+
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -14,7 +17,6 @@ class KounyuuHassousaki
     validates :item_id
     #validates :kounyuu_id
   end
-
   
   # 各テーブルにデータを保存する処理を書く
   def save

@@ -1,10 +1,6 @@
 class KounyuuHassousaki
-
   include ActiveModel::Model
   attr_accessor :yuubin_bangou, :todoufuken_id, :todoufuken_id, :shikuchouson, :banchi, :tatemono, :denwabango, :kounyuu_id, :item_id, :user_id, :token
-  #belongs_to :user
-  #belongs_to :item
-
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -12,11 +8,10 @@ class KounyuuHassousaki
     validates :todoufuken_id, numericality: {other_than: 1, message: "can't be blank"}
     validates :shikuchouson
     validates :banchi
-    #validates :denwabango
     validates :denwabango, format: {with: /\A[0-9]{10,11}\z/, message: "is invalid. Sólo se pueden guardar números de medio ancho entre 10 y 11 dígitos"}
     validates :user_id
     validates :item_id
-    #validates :kounyuu_id
+    validates :token
   end
 
   # 各テーブルにデータを保存する処理を書く

@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
   end
 
   def index
+    #binding.pry
+    #if Kounyuu.exists?(item_id: item.id)
+    #  redirect_to root_path
+    #end
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
     @kounyuu_hassousaki = KounyuuHassousaki.new

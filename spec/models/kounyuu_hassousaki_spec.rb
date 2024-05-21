@@ -53,7 +53,7 @@ RSpec.describe KounyuuHassousaki, type: :model do
       it '【要件】電話番号は、10桁以上11桁以内の半角数値のみ保存可能なこと（良い例：09012345678　良くない例：090-1234-5678）' do
         @kounyuu_hassousaki.denwabango = '090-1234-5678'
         @kounyuu_hassousaki.valid?
-        expect(@kounyuu_hassousaki.errors.full_messages).to include "Denwabango is invalid. Sólo se pueden guardar números de medio ancho entre 10 y 11 dígitos"
+        expect(@kounyuu_hassousaki.errors.full_messages).to include "Denwabango is invalid. Solo se pueden guardar numeros de medio ancho entre 10 y 11 dígitos"
       end
     end
   end

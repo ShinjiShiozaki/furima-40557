@@ -1,7 +1,7 @@
 class KounyuuHassousaki
 
   include ActiveModel::Model
-  attr_accessor :yuubin_bangou, :todoufuken_id, :todoufuken_id, :shikuchouson, :banchi, :tatemono, :denwabango, :kounyuu_id, :item_id, :user_id
+  attr_accessor :yuubin_bangou, :todoufuken_id, :todoufuken_id, :shikuchouson, :banchi, :tatemono, :denwabango, :kounyuu_id, :item_id, :user_id, :token
   #belongs_to :user
   #belongs_to :item
 

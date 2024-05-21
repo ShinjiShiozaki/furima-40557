@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def index
+    gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
     # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
     @kounyuu_hassousaki = KounyuuHassousaki.new
     @item = Item.find(params[:item_id])
@@ -19,6 +20,7 @@ class OrdersController < ApplicationController
       @kounyuu_hassousaki.save
       redirect_to root_path
     else
+      gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
       render :index, status: :unprocessable_entity
     end
   end
@@ -31,7 +33,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_80d0f75eec3776e019ce5ee5"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.kakaku,                 # 商品の値段
       card: hassousaki_params[:token],      # カードトークン

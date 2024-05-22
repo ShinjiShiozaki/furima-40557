@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_item, only: [:index, :create]
 
   def new
   end
@@ -7,14 +8,12 @@ class OrdersController < ApplicationController
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @kounyuu_hassousaki = KounyuuHassousaki.new
-    @item = Item.find(params[:item_id])
     return unless Kounyuu.exists?(item_id: @item.id) || (current_user.id == @item.user_id)
 
     redirect_to root_path
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @kounyuu_hassousaki = KounyuuHassousaki.new(hassousaki_params)
     if @kounyuu_hassousaki.valid?
       pay_item
@@ -41,4 +40,9 @@ class OrdersController < ApplicationController
       currency: 'jpy'                       # 通貨の種類（日本円）
     )
   end
+
+  def find_item
+    @item = Item.find(params[:item_id])
+  end
+
 end

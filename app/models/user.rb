@@ -27,5 +27,5 @@ class User < ApplicationRecord
 
   # アソシエーション
   has_many :items
-  # has_many :kounyuus
+  has_many :kounyuus
 end

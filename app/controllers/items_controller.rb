@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return unless user_signed_in? == false || current_user.id != @item.user_id
+    return unless user_signed_in? == false || current_user.id != @item.user_id || Kounyuu.exists?(item_id: @item.id)
 
     redirect_to root_path
   end

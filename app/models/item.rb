@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :image
+  # attr_accessor :token
 
   # アソシエーション
   extend ActiveHash::Associations::ActiveRecordExtensions

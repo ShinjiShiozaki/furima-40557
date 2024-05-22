@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 
 #240510)add
 pin "item_kakaku", to: "item_kakaku.js"
+pin "card", to: "card.js"

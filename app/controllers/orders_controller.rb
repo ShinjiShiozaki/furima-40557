@@ -2,9 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :find_item, only: [:index, :create]
 
-  def new
-  end
-
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @kounyuu_hassousaki = KounyuuHassousaki.new

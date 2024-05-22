@@ -5,18 +5,15 @@ class OrdersController < ApplicationController
   end
 
   def index
-    # binding.pry
-    # if Kounyuu.exists?(item_id: item.id)
-    #  redirect_to root_path
-    # end
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
-    # Formオブジェクトのインスタンスを作成して、インスタンス変数に代入する
     @kounyuu_hassousaki = KounyuuHassousaki.new
     @item = Item.find(params[:item_id])
+    return unless Kounyuu.exists?(item_id: @item.id) || (current_user.id == @item.user_id)
+
+    redirect_to root_path
   end
 
   def create
-    # 値をDBへ保存する実装
     @item = Item.find(params[:item_id])
     @kounyuu_hassousaki = KounyuuHassousaki.new(hassousaki_params)
     if @kounyuu_hassousaki.valid?

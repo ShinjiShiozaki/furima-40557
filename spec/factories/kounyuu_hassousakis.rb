@@ -6,6 +6,6 @@ FactoryBot.define do
     banchi         { '2-50' }
     tatemono       { '駅前ビル1F' }
     denwabango     { '0929271111' }
-    token          {"tok_abcdefghijk00000000000000000"}
+    token          { 'tok_abcdefghijk00000000000000000' }
   end
 end

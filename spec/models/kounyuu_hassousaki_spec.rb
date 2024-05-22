@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe KounyuuHassousaki, type: :model do
   before do
-    user = FactoryBot.create(:user)
-    item = FactoryBot.create(:item)
-    @kounyuu_hassousaki = FactoryBot.build(:kounyuu_hassousaki, item_id: item.id, user_id: user.id)
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    @kounyuu_hassousaki = FactoryBot.build(:kounyuu_hassousaki, item_id: @item.id, user_id: @user.id)
   end
 
   describe '商品の購入' do
@@ -63,6 +63,21 @@ RSpec.describe KounyuuHassousaki, type: :model do
         @kounyuu_hassousaki.denwabango = '090-1234-4567'
         @kounyuu_hassousaki.valid?
         expect(@kounyuu_hassousaki.errors.full_messages).to include 'Denwabango is invalid. Solo se pueden guardar numeros de medio ancho entre 10 y 11 dígitos'
+      end
+      it 'Tokenが空では登録できない' do
+        @kounyuu_hassousaki.token = nil
+        @kounyuu_hassousaki.valid?
+        expect(@kounyuu_hassousaki.errors.full_messages).to include "Token can't be blank"
+      end
+      it 'user_idが空では登録できない' do
+        @kounyuu_hassousaki.user_id = nil
+        @kounyuu_hassousaki.valid?
+        expect(@kounyuu_hassousaki.errors.full_messages).to include "User can't be blank"
+      end
+      it 'item_idが空では登録できない' do
+        @kounyuu_hassousaki.item_id = nil
+        @kounyuu_hassousaki.valid?
+        expect(@kounyuu_hassousaki.errors.full_messages).to include "Item can't be blank"
       end
     end
   end
